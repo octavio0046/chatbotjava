@@ -31,11 +31,11 @@ son#audifonos#audifonos?#para escuchar musica
 jaja#jajaj#jaja?#jaja
 te#odio#odio?#amo#yo tambien
 como#como
-como#te#llamas#cortana
+como#te#llamas#Jarvis
 estas#estas?#bien
 yes#yes?#yes
 haces#haces?#no nada y ud
-quien#eres#eres?#cortana
+quien#eres#eres?#Jarvis
 no#se#se?#yo tampoco se
 que#es#sistema#operativo#operativo?#Conjunto de cosas o elementos que guardan entre sí algún tipo de relación.
 voy#si
@@ -63,7 +63,7 @@ me#gusta#genial
 te#gusta#el#chorizo#chorizo?#si
 xd#xd?#xd
 aqui#en#la#casa#casa?#enitendo
-cortana?#cortana#dime
+Jarvis?#Jarvis#dime
 como#estas?#estas??#Bien y tu que tal?
 muy#bien#bien?#que bueno 
 quien#tu#creador?#creador??#octavio es mi puto amo

@@ -15,13 +15,15 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 public class Main extends javax.swing.JFrame {
-
+   
     String pregunta, respuesta,preguntagenerada;
     boolean reproducciendo=false;
      AudioClip sonido1, sonido2, alive;
      
     
     public Main() {
+   
+         
         initComponents();
     }
 
@@ -40,7 +42,7 @@ public class Main extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         enviar.setBackground(new java.awt.Color(255, 255, 255));
-        enviar.setText("enviar");
+        enviar.setText("ENVIAR");
         enviar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         enviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,9 +65,9 @@ public class Main extends javax.swing.JFrame {
         online.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
 
         Namebot.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
-        Namebot.setText("ChatBot");
+        Namebot.setText("CHATBOT INGENIERIA EN SISTEMAS");
 
-        jButton1.setText("Enseñar");
+        jButton1.setText("ENSEÑAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -77,20 +79,25 @@ public class Main extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(texto)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(enviar))
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
+                        .addGap(169, 169, 169)
                         .addComponent(Namebot)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(online, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 452, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                        .addComponent(online, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(texto, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(enviar)))))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,15 +105,20 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(online, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Namebot))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Namebot, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(108, 108, 108)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(enviar)
-                    .addComponent(texto, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19))
+                    .addComponent(texto, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10))
         );
 
         pack();
@@ -118,12 +130,13 @@ public class Main extends javax.swing.JFrame {
             @Override
             public void run() {
                 try {
+        
         pregunta=texto.getText();
         respuesta=(new BuscaDatos().translate(texto.getText()));
         preguntagenerada=(new BuscaDatos().translate(generarpregunta()));
         pantalla.append("Usted: "+texto.getText() +"\n");
         if (respuesta.equalsIgnoreCase("ok")){
-        pantalla.append("Cortana: Podrias enseñarme que debo responder si me dicen: '"+pregunta+"' por favor (si/no)\n");
+        pantalla.append("Jarvis: Podrias enseñarme que debo responder si me dicen: '"+pregunta+"' por favor (si/no)\n");
         String respuestUsuario= JOptionPane.showInputDialog("Deseas enseñarle?(si/no)");
         if (respuestUsuario.equalsIgnoreCase("si")){
              String respuestUsuarioPregunta= JOptionPane.showInputDialog("Que responder a '"+pregunta+"'");
@@ -177,7 +190,7 @@ public class Main extends javax.swing.JFrame {
         Thread.sleep(generarRandom());
         online.setText("");
         sonido1.play();
-        pantalla.append("Cortana: "+ respuestaxd+"\n");
+        pantalla.append("Jarvis: "+ respuestaxd+"\n");
           if(pregunta.equalsIgnoreCase("reproducir musica")){
             reproducciendo=true;
               Desktop.getDesktop().browse(new URI("https://www.youtube.com/watch?v=I_izvAbhExY"));
@@ -193,7 +206,7 @@ public class Main extends javax.swing.JFrame {
         Thread.sleep(1000);
         online.setText("");
         sonido1.play();
-        pantalla.append("Cortana: "+ respuestaxd+"\n");
+        pantalla.append("Jarvis: "+ respuestaxd+"\n");
     }
     
     public int generarRandom(){
